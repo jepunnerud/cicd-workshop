@@ -1,0 +1,17 @@
+name: hei
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  hei:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "Hello, ${{ github.triggering_actor }}"
+      - name: Run
+        run: |
+          echo "Running in ${{ github.event.inputs.environment }}"
+          echo "Repository: ${{ github.repository }}"
